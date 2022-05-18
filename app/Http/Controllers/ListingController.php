@@ -9,14 +9,14 @@ class ListingController extends Controller
 {
     public function index()       
     {
-        return view('index', [
-            'listings' => Listing::all()
+        return view('listings.index', [
+            'listings' => Listing::latest()->filter(request(['tag','search']))->get()
         ]);
     }
-    public function show($id)
+    public function show(Listing $listing)
     {
-        return view('/show',[
-            'listing' => Listing::findOrFail($id)
+        return view('listings.show',[
+            'listing' => $listing
         ]);
     }
 }
