@@ -16,8 +16,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        User::truncate();
-        \App\Models\User::factory(10)->create();
+        // User::truncate();
+        // \App\Models\User::factory(10)->create();
+        $user = User::factory()->create([
+            'name' => 'John Doe',
+            'email'=> 'john@gmail.com'
+        ]);
 
 
         // \App\Models\User::factory()->create([
@@ -42,6 +46,8 @@ class DatabaseSeeder extends Seeder
         //     'website' => 'https://www.acme.com',
         //     'description' => 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque deleniti, aut non optio veritatis reiciendis tempora, alias soluta in accusantium iure autem perspiciatis odit id quibusdam incidunt rerum eius hic.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque deleniti, aut non optio veritatis reiciendis tempora, alias soluta in accusantium iure autem perspiciatis odit id quibusdam incidunt rerum eius hic.'
         // ]);
-        Listing::factory(6)->create();
+        Listing::factory(6)->create([
+            'user_id' => $user->id
+        ]);
     }
 }

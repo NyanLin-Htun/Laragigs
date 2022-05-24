@@ -1,4 +1,5 @@
 <x-layout>
+    <x-flash-message/>
         <x-Hero/>
 
         <main>
@@ -8,4 +9,5 @@
 
        <x-footer/>
 </x-layout>
+
     
