@@ -22,7 +22,7 @@ class UserController extends Controller
         ]);
 
         //Hash Password
-        $registerdata['password'] = bcrypt($registerdata['password']);
+        // $registerdata['password'] = bcrypt($registerdata['password']);
 
         //Create User
         $user = User::create($registerdata);
@@ -34,6 +34,7 @@ class UserController extends Controller
     }
     public function logout(Request $request)
     {
+
         auth()->logout();
 
         $request->session()->invalidate();

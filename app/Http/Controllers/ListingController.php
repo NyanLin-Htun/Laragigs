@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Listing;
+use App\Models\User;
 // use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
@@ -88,7 +89,7 @@ class ListingController extends Controller
     public function manage()
     {
         return view('listings.manage', [
-            'listingsmanage' => auth()->user()->listings()->get()
+            'listingsmanage' => User::find(auth()->id())->listings()->get()
         ]);
     }
 }
